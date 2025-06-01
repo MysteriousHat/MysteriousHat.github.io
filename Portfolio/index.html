@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logan Walker - IT Professional & Cybersecurity Student</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00FF41',
+                        dark: '#0a0a0a',
+                        light: '#f0f0f0',
+                        accent: '#00cc00',
+                        matrix: '#003B00'
+                    },
+                    fontFamily: {
+                        'matrix': ['Inconsolata', 'monospace'],
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            scroll-behavior: smooth;
+        }
+        
+        .matrix-text {
+            color: #00FF41;
+            font-family: 'Inconsolata', monospace;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.7);
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.7), 0 0 20px rgba(0, 255, 65, 0.5);
+        }
+        
+        .glow-border {
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+            border: 1px solid rgba(0, 255, 65, 0.5);
+        }
+        
+        .skill-bar-fill {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 255, 65, 0.2) 50%, rgba(0, 255, 65, 0.8) 100%);
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+        
+        .gradient-card {
+            background: linear-gradient(145deg, rgba(15, 15, 15, 0.9), rgba(30, 30, 30, 0.6));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 65, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .gradient-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 65, 0.5);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+        }
+        
+        .matrix-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.04;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="0" y="50" font-family="monospace" font-size="10" fill="%2300FF41">01010101010101010101</text></svg>');
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        #typewriter::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .typeIn {
+            animation: typeIn 1s forwards;
+        }
+        
+        @keyframes typeIn {
+            from { width: 0; }
+            to { width: var(--w); }
+        }
+        
+        .reveal {
+            position: relative;
+            opacity: 0;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transition: opacity 0.5s ease-in;
+        }
+        
+        .contact-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-icon:hover {
+            transform: scale(1.2);
+            color: #00FF41;
+        }
+        
+        .cert-badge {
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+        }
+        
+        .terminal-box {
+            background: #111;
+            border: 1px solid #00FF41;
+            font-family: 'Inconsolata', monospace;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+        
+        .terminal-header {
+            background: rgba(0, 255, 65, 0.15);
+            border-bottom: 1px solid #00FF41;
+        }
+        
+        .tech-radar {
+            background: radial-gradient(circle, rgba(0, 60, 0, 0.2) 0%, transparent 70%);
+        }
+        
+        .matrix-underline {
+            position: relative;
+        }
+        
+        .matrix-underline::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background: #00FF41;
+            box-shadow: 0 0 10px #00FF41;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .matrix-underline:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .flowing-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.15;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-dark text-light font-inter">
+    <!-- Matrix Background -->
+    <div class="matrix-bg fixed"></div>
+    <div class="flowing-grid fixed"></div>
+    
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-black/80 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 font-bold text-xl glow-text font-matrix">
+                    > LOGAN_WALKER<span class="text-primary animate-pulse">_</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#hero" class="hover:text-primary transition-colors matrix-underline">HOME</a>
+                    <a href="#about" class="hover:text-primary transition-colors matrix-underline">ABOUT</a>
+                    <a href="#certifications" class="hover:text-primary transition-colors matrix-underline">CERTS</a>
+                    <a href="#projects" class="hover:text-primary transition-colors matrix-underline">PROJECTS</a>
+                    <a href="#contact" class="hover:text-primary transition-colors matrix-underline">CONTACT</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-light hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="#hero" class="block py-2 hover:text-primary matrix-underline">Home</a>
+                <a href="#about" class="block py-2 hover:text-primary matrix-underline">About</a>
+                <a href="#certifications" class="block py-2 hover:text-primary matrix-underline">Certifications</a>
+                <a href="#projects" class="block py-2 hover:text-primary matrix-underline">Projects</a>
+                <a href="#contact" class="block py-2 hover:text-primary matrix-underline">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">
+                <span class="matrix-text">LOGAN </span><span class="text-primary">WALKER</span>
+            </h1>
+            <h2 id="typewriter" class="text-xl md:text-2xl text-primary mb-6 font-matrix">
+                > IT_PROFESSIONAL | CYBERSECURITY_STUDENT | WGU
+            </h2>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                Aspiring cybersecurity specialist building enterprise-ready IT foundations with certified expertise
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#projects" class="px-6 py-3 bg-primary text-dark font-bold rounded-md hover:bg-opacity-90 transition font-matrix">RUN_PROJECTS</a>
+                <a href="#contact" class="px-6 py-3 bg-transparent border border-primary text-primary font-bold rounded-md hover:bg-primary/20 transition font-matrix">CONNECT</a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+            <a href="#about" class="animate-bounce text-primary">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+        
+        <div class="terminal-box p-4 absolute bottom-5 right-5 w-64 hidden md:block">
+            <div class="terminal-header px-3 py-2 text-xs text-primary flex items-center justify-between">
+                <span>PROFILE_TERMINAL</span>
+                <div class="flex space-x-1">
+                    <span class="w-2 h-2 bg-red-500 rounded-full"></span>
+                    <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                    <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                </div>
+            </div>
+            <div class="p-3 text-xs font-matrix">
+                <p class="text-green-400">> user@portfolio:~$ whoami</p>
+                <p>LOGAN_WALKER</p>
+                <p class="text-green-400 mt-2">> user@portfolio:~$ status --certs</p>
+                <p>A+ | NET+ | SEC+ | ITIL</p>
+                <p class="text-green-400 mt-2">> user@portfolio:~$ objective</p>
+                <p>ENTERPRISE_IT_FOUNDATIONS</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold glow-text mb-4 font-matrix">> ABOUT_ME</h2>
+                <div class="h-1 w-24 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="flex justify-center">
+                    <div class="relative">
+                        <div class="terminal-box w-64 h-64 flex items-center justify-center">
+                            <div class="text-center p-4">
+                                <div class="border border-primary w-32 h-32 mx-auto mb-4"><img src="C:Portfolio/Copilot_20250601_032906.png" alt="My Image" ;> </div>
+                                <p class="text-primary font-matrix">USER: LOGAN_WALKER</p>
+                                <p class="text-xs mt-2">SECURITY ANALYST IN TRAINING</p>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-3 -right-3 bg-primary text-dark py-2 px-6 rounded-md font-bold font-matrix">IT_FOUNDATIONS</div>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <p>
+                        Hello! I'm <span class="text-primary font-semibold">Logan Walker</span>, a CompTIA-certified IT professional and cybersecurity student at Western Governors University. I specialize in building secure, enterprise-ready infrastructure foundations with certified expertise in core IT domains.
+                    </p>
+                    
+                    <p>
+                        My journey began with hands-on problem-solving and evolved into a passion for secure system architecture. I bridge technical expertise with security-first principles to deliver robust solutions.
+                    </p>
+                    
+                    <p class="text-primary font-medium">
+                        <i class="fas fa-cogs mr-2"></i> Operational Focus:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gray-900 p-4 rounded-lg border border-gray-800">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-shield-alt text-primary mr-3"></i>
+                                <h3 class="font-bold">Security Operations</h3>
+                            </div>
+                            <p class="text-sm text-gray-300">Implementing security controls and vulnerability management</p>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-lg border border-gray-800">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-network-wired text-primary mr-3"></i>
+                                <h3 class="font-bold">Network Infrastructure</h3>
+                            </div>
+                            <p class="text-sm text-gray-300">Designing and maintaining enterprise-grade networks</p>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-lg border border-gray-800">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-server text-primary mr-3"></i>
+                                <h3 class="font-bold">Systems Administration</h3>
+                            </div>
+                            <p class="text-sm text-gray-300">Windows/Linux system deployment and maintenance</p>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-lg border border-gray-800">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-users-cog text-primary mr-3"></i>
+                                <h3 class="font-bold">IT Service Management</h3>
+                            </div>
+                            <p class="text-sm text-gray-300">ITIL-based service delivery and process improvement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 bg-matrix/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold glow-text mb-4 font-matrix">> INDUSTRY_CERTIFICATIONS</h2>
+                <p class="text-lg mb-8">Validated expertise in core IT domains</p>
+                <div class="h-1 w-24 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="gradient-card rounded-xl p-6 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-desktop text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">CompTIA A+</h3>
+                    <p class="text-gray-300 mb-4">Core hardware and OS expertise</p>
+                    <div class="mt-auto py-2 px-4 bg-black/50 rounded-full text-xs text-primary font-matrix">
+                        ACTIVE
+                    </div>
+                </div>
+                
+                <div class="gradient-card rounded-xl p-6 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-network-wired text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">CompTIA Network+</h3>
+                    <p class="text-gray-300 mb-4">Network infrastructure & operations</p>
+                    <div class="mt-auto py-2 px-4 bg-black/50 rounded-full text-xs text-primary font-matrix">
+                        ACTIVE | VALID:2028
+                    </div>
+                </div>
+                
+                <div class="gradient-card rounded-xl p-6 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">CompTIA Security+</h3>
+                    <p class="text-gray-300 mb-4">Security principles & best practices</p>
+                    <div class="mt-auto py-2 px-4 bg-black/50 rounded-full text-xs text-primary font-matrix">
+                        ACTIVE | VALID:2026
+                    </div>
+                </div>
+                
+                <div class="gradient-card rounded-xl p-6 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-book text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">ITIL v4 Foundation</h3>
+                    <p class="text-gray-300 mb-4">Service management framework</p>
+                    <div class="mt-auto py-2 px-4 bg-black/50 rounded-full text-xs text-primary font-matrix">
+                        ACTIVE | VALID:2028
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-20">
+                <div class="text-center mb-12">
+                    <h3 class="text-2xl font-bold glow-text mb-4 font-matrix">> EDUCATION_PATH</h3>
+                    <div class="h-1 w-16 bg-primary mx-auto"></div>
+                </div>
+                
+                <div class="relative pl-8 border-l-2 border-primary/30 ml-4">
+                    <div class="absolute w-6 h-6 rounded-full bg-primary -left-[15px] top-0"></div>
+                    <div class="mb-12">
+                        <h4 class="text-xl font-bold flex items-center">
+                            <i class="fas fa-university text-primary mr-3"></i>
+                            Western Governors University
+                        </h4>
+                        <div class="ml-8 mt-2">
+                            <p class="font-semibold">B.S. Cybersecurity & Information Assurance</p>
+                            <p class="text-gray-400">2023 - Present</p>
+                            <p class="mt-2">Focus on secure infrastructure design, risk management, and security controls</p>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute w-6 h-6 rounded-full bg-primary -left-[15px] top-[110px]"></div>
+                    <div class="mb-12 ml-1">
+                        <h4 class="text-xl font-bold flex items-center">
+                            <i class="fas fa-laptop-code text-primary mr-3"></i>
+                            Professional Development
+                        </h4>
+                        <div class="ml-8 mt-2">
+                            <p class="font-semibold">Current Learning Path</p>
+                            <ul class="mt-2 space-y-2">
+                                <li class="flex items-start"><i class="fas fa-angle-right text-primary mr-2 mt-1"></i>AWS Cloud Practitioner Certification</li>
+                                <li class="flex items-start"><i class="fas fa-angle-right text-primary mr-2 mt-1"></i>Python Security Automation</li>
+                                <li class="flex items-start"><i class="fas fa-angle-right text-primary mr-2 mt-1"></i>Cloud Security Architecture</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-black/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold glow-text mb-4 font-matrix">> SECURITY_PROJECTS</h2>
+                <p class="text-lg mb-8">Applied implementations of security and infrastructure principles</p>
+                <div class="h-1 w-24 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="gradient-card rounded-xl p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="bg-gray-800 rounded-lg w-16 h-16 flex items-center justify-center">
+                            <i class="fas fa-search-location text-3xl text-primary"></i>
+                        </div>
+                        <span class="text-xs bg-black/50 py-1 px-3 rounded-full text-primary font-matrix">PYTHON</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-primary">Threat Intelligence Dashboard</h3>
+                    <p class="text-gray-300 mb-4">Aggregates security feeds, vulnerability databases, and threat indicators into a unified dashboard with automated alerting</p>
+                    <p class="mb-4"><span class="font-semibold">Technologies:</span> Python, Flask, MISP, Elasticsearch</p>
+                    <a href="#" class="text-primary hover:underline inline-flex items-center">
+                        GITHUB <i class="fab fa-github ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="gradient-card rounded-xl p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="bg-gray-800 rounded-lg w-16 h-16 flex items-center justify-center">
+                            <i class="fas fa-cloud text-3xl text-primary"></i>
+                        </div>
+                        <span class="text-xs bg-black/50 py-1 px-3 rounded-full text-primary font-matrix">AWS</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-primary">Cloud Security Posture Tool</h3>
+                    <p class="text-gray-300 mb-4">Continuously audits AWS environments against CIS benchmarks with automated remediation workflows</p>
+                    <p class="mb-4"><span class="font-semibold">Technologies:</span> AWS Config, Lambda, CloudFormation, Python</p>
+                    <a href="#" class="text-primary hover:underline inline-flex items-center">
+                        CASE STUDY <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="gradient-card rounded-xl p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="bg-gray-800 rounded-lg w-16 h-16 flex items-center justify-center">
+                            <i class="fas fa-lock text-3xl text-primary"></i>
+                        </div>
+                        <span class="text-xs bg-black/50 py-1 px-3 rounded-full text-primary font-matrix">SECURITY</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-primary">Enterprise Password Vault</h3>
+                    <p class="text-gray-300 mb-4">Secure credential management system with RBAC, audit logging, and automated rotation policies</p>
+                    <p class="mb-4"><span class="font-semibold">Technologies:</span> Python, Flask, PostgreSQL, Hashicorp Vault</p>
+                    <a href="#" class="text-primary hover:underline inline-flex items-center">
+                        DEMO <i class="fas fa-laptop-code ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="gradient-card rounded-xl p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="bg-gray-800 rounded-lg w-16 h-16 flex items-center justify-center">
+                            <i class="fas fa-server text-3xl text-primary"></i>
+                        </div>
+                        <span class="text-xs bg-black/50 py-1 px-3 rounded-full text-primary font-matrix">TERRAFORM</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-primary">Security-Hardened Server Templates</h3>
+                    <p class="text-gray-300 mb-4">Infrastructure-as-Code templates for deploying CIS-hardened servers with pre-configured security controls</p>
+                    <p class="mb-4"><span class="font-semibold">Technologies:</span> Terraform, Ansible, CIS Benchmarks, Linux</p>
+                    <a href="#" class="text-primary hover:underline inline-flex items-center">
+                        REPO <i class="fab fa-github ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="gradient-card rounded-xl p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="bg-gray-800 rounded-lg w-16 h-16 flex items-center justify-center">
+                            <i class="fas fa-file-contract text-3xl text-primary"></i>
+                        </div>
+                        <span class="text-xs bg-black/50 py-1 px-3 rounded-full text-primary font-matrix">COMPLIANCE</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-primary">Compliance Documentation Engine</h3>
+                    <p class="text-gray-300 mb-4">Automates generation of audit-ready documentation for security policies and compliance frameworks</p>
+                    <p class="mb-4"><span class="font-semibold">Technologies:</span> Python, Markdown, ITIL, Regulatory Frameworks</p>
+                    <a href="#" class="text-primary hover:underline inline-flex items-center">
+                        VIEW <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                    </a>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="gradient-card rounded-xl p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="bg-gray-800 rounded-lg w-16 h-16 flex items-center justify-center">
+                            <i class="fas fa-user-shield text-3xl text-primary"></i>
+                        </div>
+                        <span class="text-xs bg-black/50 py-1 px-3 rounded-full text-primary font-matrix">EDUCATION</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-primary">Security Awareness Training Portal</h3>
+                    <p class="text-gray-300 mb-4">Interactive training platform with phishing simulations and policy knowledge assessments</p>
+                    <p class="mb-4"><span class="font-semibold">Technologies:</span> PHP, MySQL, JavaScript, Security Content</p>
+                    <a href="#" class="text-primary hover:underline inline-flex items-center">
+                        LIVE DEMO <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold glow-text mb-4 font-matrix">> TECHNICAL_RADAR</h2>
+                <p class="text-lg mb-8">Specialized competencies in infrastructure and security domains</p>
+                <div class="h-1 w-24 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="tech-radar bg-black/20 rounded-xl p-8">
+                    <div class="grid grid-cols-3 gap-8">
+                        <div class="col-span-1">
+                            <h3 class="text-xl font-semibold text-primary mb-6">Infrastructure</h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>Network Engineering</span>
+                                        <span>95%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-md h-3">
+                                        <div class="skill-bar-fill h-3 rounded-md" data-width="95%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>System Administration</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-md h-3">
+                                        <div class="skill-bar-fill h-3 rounded-md" data-width="90%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>Cloud Platforms</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-md h-3">
+                                        <div class="skill-bar-fill h-3 rounded-md" data-width="85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-span-1">
+                            <h3 class="text-xl font-semibold text-primary mb-6">Development</h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>Python Scripting</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-md h-3">
+                                        <div class="skill-bar-fill h-3 rounded-md" data-width="90%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>Bash/Shell</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-md h-3">
+                                        <div class="skill-bar-fill h-3 rounded-md" data-width="85%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>Automation</span>
+                                        <span>80%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-md h-3">
+                                        <div class="skill-bar-fill h-3 rounded-md" data-width="80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-span-1">
+                            <h3 class="text-xl font-semibold text-primary mb-6">Security</h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>Risk Assessment</span>
+                                        <span>88%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-md h-3">
+                                        <div class="skill-bar-fill h-3 rounded-md" data-width="88%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>Security Controls</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-md h-3">
+                                        <div class="skill-bar-fill h-3 rounded-md" data-width="85%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>Vulnerability Mgmt</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-md h-3">
+                                        <div class="skill-bar-fill h-3 rounded-md" data-width="90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-span-1">
+                            <h3 class="text-xl font-semibold text-primary mb-6">Operations</h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>ITSM Processes</span>
+                                        <span>92%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-md h-3">
+                                        <div class="skill-bar-fill h-3 rounded-md" data-width="92%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>Monitoring & Alerting</span>
+                                        <span>87%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-md h-3">
+                                        <div class="skill-bar-fill h-3 rounded-md" data-width="87%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span>Documentation</span>
+                                        <span>95%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-800 rounded-md h-3">
+                                        <div class="skill-bar-fill h-3 rounded-md" data-width="95%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-gray-900/50 rounded-xl p-8 h-full">
+                        <h3 class="text-2xl font-bold text-primary mb-8 text-center">Technology Proficiencies</h3>
+                        
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="p-4 bg-black/30 rounded-lg flex items-center">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fab fa-windows text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Windows Server</h4>
+                                    <p class="text-sm text-gray-400">Active Directory, Group Policy</p>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-black/30 rounded-lg flex items-center">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fab fa-linux text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Linux Administration</h4>
+                                    <p class="text-sm text-gray-400">Ubuntu, CentOS, Bash</p>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-black/30 rounded-lg flex items-center">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-cloud text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Cloud Platforms</h4>
+                                    <p class="text-sm text-gray-400">AWS, Azure Fundamentals</p>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-black/30 rounded-lg flex items-center">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-network-wired text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Networking</h4>
+                                    <p class="text-sm text-gray-400">Cisco, TCP/IP, Subnetting</p>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-black/30 rounded-lg flex items-center">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-shield-alt text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Security Tools</h4>
+                                    <p class="text-sm text-gray-400">Wireshark, Nmap, Metasploit</p>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-black/30 rounded-lg flex items-center">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-code text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Scripting</h4>
+                                    <p class="text-sm text-gray-400">Python, PowerShell, Bash</p>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-black/30 rounded-lg flex items-center">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-database text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Databases</h4>
+                                    <p class="text-sm text-gray-400">SQL, MongoDB Basics</p>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4 bg-black/30 rounded-lg flex items-center">
+                                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                    <i class="fas fa-sync-alt text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Virtualization</h4>
+                                    <p class="text-sm text-gray-400">VMware, Hyper-V</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black/30">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold glow-text mb-4 font-matrix">> CONNECT_WITH_ME</h2>
+                <p class="text-lg mb-8">Seeking IT roles to apply my certified skills in infrastructure and security</p>
+                <div class="h-1 w-24 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="gradient-card rounded-xl p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-primary mb-6">Opportunity Alert</h3>
+                        <p class="mb-8">Currently seeking roles as:</p>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center"><i class="fas fa-caret-right text-primary mr-3"></i>Network Support Specialist</li>
+                            <li class="flex items-center"><i class="fas fa-caret-right text-primary mr-3"></i>Systems Administrator</li>
+                            <li class="flex items-center"><i class="fas fa-caret-right text-primary mr-3"></i>IT Security Analyst</li>
+                            <li class="flex items-center"><i class="fas fa-caret-right text-primary mr-3"></i>Cloud Support Engineer</li>
+                        </ul>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-primary mt-1 mr-4">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <a href="mailto:logan.a.walker@outlook.com" class="text-gray-300 hover:text-primary font-matrix">> logan.a.walker@outlook.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-primary mt-1 mr-4">
+                                    <i class="fas fa-phone-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <a href="tel:17576064272" class="text-gray-300 hover:text-primary font-matrix">> (757) 606-4272</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-primary mt-1 mr-4">
+                                    <i class="fab fa-linkedin-in text-xl"></i>
+                                </div>
+                                <div>
+                                    <a href="https://linkedin.com/in/logan-aaron-walker" target="_blank" class="text-gray-300 hover:text-primary font-matrix">> linkedin.com/in/logan-aaron-walker</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-primary mt-1 mr-4">
+                                    <i class="fab fa-github text-xl"></i>
+                                </div>
+                                <div>
+                                    <a href="https://github.com/MysteriousHat" target="_blank" class="text-gray-300 hover:text-primary font-matrix">> github.com/MysteriousHat</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex space-x-4 mt-8">
+                            <a href="https://linkedin.com/in/logan-aaron-walker" target="_blank" class="contact-icon text-xl w-12 h-12 rounded-full border border-primary flex items-center justify-center">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/MysteriousHat" target="_blank" class="contact-icon text-xl w-12 h-12 rounded-full border border-primary flex items-center justify-center">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="tel:17576064272" class="contact-icon text-xl w-12 h-12 rounded-full border border-primary flex items-center justify-center">
+                                <i class="fas fa-phone-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold text-primary mb-6">Direct Message</h3>
+                        <form>
+                            <div class="mb-5">
+                                <label for="name" class="block mb-2 font-medium">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:border-primary">
+                            </div>
+                            <div class="mb-5">
+                                <label for="email" class="block mb-2 font-medium">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:border-primary">
+                            </div>
+                            <div class="mb-5">
+                                <label for="message" class="block mb-2 font-medium">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:border-primary"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3 bg-primary text-dark font-bold rounded-md hover:bg-opacity-90 transition font-matrix">
+                                SEND > 
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 bg-black/80 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex justify-center mb-6">
+                    <div class="font-bold text-xl glow-text font-matrix">
+                        > LOGAN_WALKER<span class="text-primary animate-pulse">_</span>
+                    </div>
+                </div>
+                <p class="mb-6">Building secure infrastructure foundations for enterprise environments</p>
+                
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="https://github.com/MysteriousHat" target="_blank" class="text-gray-400 hover:text-primary">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/logan-aaron-walker" target="_blank" class="text-gray-400 hover:text-primary">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="mailto:logan.a.walker@outlook.com" class="text-gray-400 hover:text-primary">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="tel:17576064272" class="text-gray-400 hover:text-primary">
+                        <i class="fas fa-phone-alt text-xl"></i>
+                    </a>
+                </div>
+                
+                <div class="text-sm text-gray-500">
+                    © 2023 Logan Walker. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Skill bar animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animations when elements come into view
+            const animateOnScroll = () => {
+                const reveals = document.querySelectorAll('.reveal');
+                
+                reveals.forEach(reveal => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+                
+                const skillBars = document.querySelectorAll('.skill-bar-fill');
+                skillBars.forEach(bar => {
+                    if (bar.getBoundingClientRect().top < window.innerHeight - 100) {
+                        const width = bar.getAttribute('data-width');
+                        bar.style.width = width;
+                    }
+                });
+            };
+            
+            // Run animations on load and scroll
+            animateOnScroll();
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('#mobile-menu a').forEach(item => {
+                item.addEventListener('click', () => {
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                });
+            });
+            
+            // Terminal typewriter effect
+            const typewriter = document.getElementById('typewriter');
+            const text = "IT Professional | Security+ Certified | Network+ Certified";
+            let i = 0;
+            
+            function type() {
+                if (i < text.length) {
+                    typewriter.innerHTML = "> " + text.substring(0, i+1) + '<span class="blink">|</span>';
+                    i++;
+                    setTimeout(type, 100);
+                } else {
+                    typewriter.innerHTML = "> " + text + '<span class="blink">|</span>';
+                }
+            }
+            
+            // Start typing after a delay
+            setTimeout(type, 1000);
+            
+            // Scroll to top
+            const scrollTopBtn = document.createElement('button');
+            scrollTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+            scrollTopBtn.className = 'fixed bottom-6 right-6 w-12 h-12 bg-primary text-dark rounded-full flex items-center justify-center shadow-lg z-50 transition transform hover:scale-110';
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            document.body.appendChild(scrollTopBtn);
+        });
+    </script>
+</body>
+</html>
